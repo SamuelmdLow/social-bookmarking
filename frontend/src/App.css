@@ -3,6 +3,37 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
+
+  background-color: #DFAEF0;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 0.5em 0;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+.tab-container {
+  position: absolute;
+  height: 30px;
+  top: 0;
+  left: 20px;
+  right: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.tab {
+  width: fit-content;
+  padding: 0.1em 0.75em 0.25em 0.75em;
+  border-radius: 0 0 12px 12px;
+  background-color: #6F6373;
+  color: white;
 }
 
 .window-container {
@@ -18,13 +49,86 @@ body {
 }
 
 .window {
-  background: #e1e1e1;
+  background: white;
   max-width: 1000px;
   height: calc(100% - 10px);
   margin: 0px 20px;
   padding: 1px;
   border-radius: 20px;
-  border: solid 5px brown;
+  border: solid 5px #6F6373;
   display: inline-block;
   width: 100%;
+  white-space: wrap;
+}
+
+.feed {
+  padding: 1.5em;
+}
+
+.post-list {
+  padding: 0;
+  list-style: none;
+}
+
+.post {
+  width: 100%;
+  max-width: 400px;
+  margin: 2em 0;
+  display: flex;
+
+}
+
+.post_left {
+  margin-right: 1em;
+}
+
+div.post_icon {
+  width: 75px;
+  border-radius: 10px;
+  border: 2px #EEE solid;
+  margin-top: 0.4em;
+
+  aspect-ratio: 1;
+  background-color: white;
+}
+
+a.post_link {
+  width: 70%;
+  display: block;
+  color: black;
+  font-weight: 700;
+  font-size: 0.7em;
+  white-space: nowrap;
+  overflow: clip;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  position: relative;
+}
+
+a.post_link::before {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  right: 0;
+  left: 0;
+  border-bottom: 1px solid black;
+}
+
+
+p.post_date {
+  position: relative;
+  color: black;
+  font-size: 0.8em;
+  font-weight: 700;
+  width: fit-content;
+  margin: auto;
+}
+
+p.post_date::before {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  right: 0;
+  left: 0;
+  border-bottom: 1px solid black;
 }
