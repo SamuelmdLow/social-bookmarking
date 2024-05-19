@@ -5,3 +5,14 @@ class Post(models.Model):
     desc = models.TextField()
     link = models.URLField()
     date = models.DateTimeField()
+
+    def __str__(self):
+        return self.title
+
+class FeaturedPosts(models.Model):
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
