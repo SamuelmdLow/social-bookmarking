@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
 import PostLink from './posts/postLink';
+import { Link } from "react-router-dom";
 
 class Cover extends Component {
     constructor(props) {
@@ -31,7 +32,7 @@ class Cover extends Component {
                 <PostLink link={this.state.post.link} />
                 <img src="https://www.tubbdoose.com/static/posts/summer2023/summer2023.png"></img>
                 <h1>{this.state.post.title}</h1>
-                <a className="wrapper-link" href={"/post/" + this.state.post.id}></a>
+                <Link className="wrapper-link" hreft={"/post/" + this.state.post.id}></Link>
             </article>
         );
     }

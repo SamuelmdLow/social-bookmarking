@@ -10,6 +10,7 @@ body {
 
 a.post_link {
   position: relative;
+  width: fit-content;
   max-width: 70%;
   display: block;
 
@@ -72,6 +73,10 @@ h2 {
   overflow-x: auto;
 }
 
+.tab-container > a {
+  text-decoration: none;
+}
+
 .tab {
   width: fit-content;
   padding: 0.1em 0.75em;
@@ -80,6 +85,7 @@ h2 {
   border-top: none;
   background-color: #6F6373;
   color: white;
+  text-decoration: none;
 }
 
 .window-container {
@@ -155,6 +161,7 @@ h2 {
 }
 
 .cover > a {
+  margin-bottom: 1px;
   float: right;
   color: #aeaeae;
 }

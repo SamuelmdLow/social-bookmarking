@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
 import PostLink from './posts/postLink';
+import { Link } from "react-router-dom";
 
 class Featured extends Component {
     constructor(props) {
@@ -31,7 +32,7 @@ class Featured extends Component {
                 <article>
                 <PostLink link={this.state.post.link} />
                 <h1>{this.state.post.title}</h1>
-                <a className="wrapper-link" href={"/post/" + this.state.post.id}></a>
+                <Link className="wrapper-link" to={"/post/" + this.state.post.id}></Link>
                 </article>
             </li>
         );

@@ -6,67 +6,22 @@ import Post from './posts/post'
 import Featured from './featured';
 import Cover from './cover';
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from './Home'
 
 class App extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      featured: [],
-      posts: [],
-    };
-  }
-
-  componentDidMount() {
-    this.loadPosts();
-  }
-
-  loadPosts = () => {
-    axios
-    .get('/api/posts/?ordering=-date&page=1')
-    .then((res) => this.setState({posts: res.data.results}))
-    .catch((err) => console.log(err));
-
-    axios
-    .get('/api/featured_posts')
-    .then((res) => this.setState({featured: res.data.results}))
-    .catch((err) => console.log(err));
-  };
 
   render() {
   return (
     <>
     <div className="tab-container">
-      <div className="tab">Home</div>
+    <Link to="/"><div className="tab">Home</div></Link>
     </div>
     <div className="window-container">
-
-    <div className="window">
-      <div className="banner"></div>
-      {this.state.featured.length > 0 &&
-        <div className="featured">
-          <div className="left">
-            <div className="cover-branding"></div>
-            <Cover id={this.state.featured[0].post} />
-          </div>
-        <div className="right">
-          <ol>{this.state.featured.slice(1).map(post =>
-            <Featured key={post.id} id={post.post}/>
-          )}</ol>  
-        </div>
-      </div>
-      }
-
-      <div className="feed">
-        <h1>Feed</h1>
-        <h2>This Week</h2>
-        <ul className="post-list">{this.state.posts.map(post =>
-            <li key={post["id"].toString()}><Post data={post} /></li>
-          )}</ul>   
-      </div>   
-    </div>
-
+      <Home/>
+      <Routes>
+        <Route path='/post/:postId' element={ <div className="window"><h1>Sorry, what?</h1></div> } />
+      </Routes>
     </div>
     </>
   );
