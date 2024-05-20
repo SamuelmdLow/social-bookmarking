@@ -2,13 +2,14 @@ import { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
+import PostLink from './posts/postLink';
 
 class Cover extends Component {
     constructor(props) {
         super(props);
         this.state = {
           id: props.id,
-          post: {},
+          post: {link: ""},
         };
       }
     
@@ -27,8 +28,10 @@ class Cover extends Component {
     render() {
         return (
             <article className='cover'>
+                <PostLink link={this.state.post.link} />
                 <img src="https://www.tubbdoose.com/static/posts/summer2023/summer2023.png"></img>
                 <h1>{this.state.post.title}</h1>
+                <a className="wrapper-link" href={"/post/" + this.state.post.id}></a>
             </article>
         );
     }

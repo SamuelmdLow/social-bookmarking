@@ -2,13 +2,14 @@ import { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
+import PostLink from './posts/postLink';
 
 class Featured extends Component {
     constructor(props) {
         super(props);
         this.state = {
           id: props.id,
-          post: {},
+          post: {link: ""},
         };
       }
     
@@ -28,8 +29,9 @@ class Featured extends Component {
         return (
             <li>
                 <article>
-                <a className="post_link" href={this.state.post.link}>{this.state.post.link}</a>
+                <PostLink link={this.state.post.link} />
                 <h1>{this.state.post.title}</h1>
+                <a className="wrapper-link" href={"/post/" + this.state.post.id}></a>
                 </article>
             </li>
         );

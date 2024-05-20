@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from "axios";
 import { format } from "date-fns";
+import PostLink from './postLink';
 
 export default function Post({data}) {
 
@@ -14,7 +15,8 @@ export default function Post({data}) {
 
         <div className="post_right">
         <p className="post_text"><b>{data["title"]}</b> {data["desc"]}</p>
-        <a className="post_link" href={data["link"]}>{data["link"].replace("https://www.", "").replace("http://www.", "").replace("https://", "").replace("http://", "")}</a>
+        <PostLink link={data["link"]} />
         </div>
+        <a className="wrapper-link" href={"/post/" + data["id"]}></a>
     </div>);
 }

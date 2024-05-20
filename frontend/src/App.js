@@ -5,6 +5,8 @@ import axios from "axios";
 import Post from './posts/post'
 import Featured from './featured';
 import Cover from './cover';
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 class App extends Component {
   
@@ -22,7 +24,7 @@ class App extends Component {
 
   loadPosts = () => {
     axios
-    .get('/api/posts/?page=1')
+    .get('/api/posts/?ordering=-date&page=1')
     .then((res) => this.setState({posts: res.data.results}))
     .catch((err) => console.log(err));
 
@@ -41,9 +43,11 @@ class App extends Component {
     <div className="window-container">
 
     <div className="window">
+      <div className="banner"></div>
       {this.state.featured.length > 0 &&
         <div className="featured">
           <div className="left">
+            <div className="cover-branding"></div>
             <Cover id={this.state.featured[0].post} />
           </div>
         <div className="right">
@@ -55,11 +59,11 @@ class App extends Component {
       }
 
       <div className="feed">
-      <h1>Feed</h1>
-      <h2>This Week</h2>
-      <ul className="post-list">{this.state.posts.map(post =>
-          <li key={post["id"].toString()}><Post data={post} /></li>
-        )}</ul>   
+        <h1>Feed</h1>
+        <h2>This Week</h2>
+        <ul className="post-list">{this.state.posts.map(post =>
+            <li key={post["id"].toString()}><Post data={post} /></li>
+          )}</ul>   
       </div>   
     </div>
 
