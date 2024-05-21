@@ -19,10 +19,9 @@ class Cover extends Component {
     }
     
     loadPosts = () => {
-        console.log(this.state.id);
         axios
         .get('/api/posts/'+this.state.id)
-        .then((res) => {this.setState({post: res.data}); console.log(res.data); console.log(this.state.post);})
+        .then((res) => {this.setState({post: res.data});})
         .catch((err) => console.log(err));
     }
 
@@ -32,7 +31,7 @@ class Cover extends Component {
                 <PostLink link={this.state.post.link} />
                 <img src="https://www.tubbdoose.com/static/posts/summer2023/summer2023.png"></img>
                 <h1>{this.state.post.title}</h1>
-                <Link className="wrapper-link" hreft={"/post/" + this.state.post.id}></Link>
+                <Link className="wrapper-link" to={"/post/" + this.state.post.id}></Link>
             </article>
         );
     }

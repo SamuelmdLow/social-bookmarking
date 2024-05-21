@@ -13,7 +13,6 @@ export default function Post({data}) {
             <div className="post_icon"></div>
         </div>
 
-
         <div className="post_right">
         <p className="post_text"><b>{data["title"]}</b> {data["desc"]}</p>
         <PostLink link={data["link"]} />

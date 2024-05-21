@@ -8,7 +8,7 @@ import Cover from './cover';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-class App extends Component {
+class Home extends Component {
   
   constructor(props) {
     super(props);
@@ -36,8 +36,10 @@ class App extends Component {
 
   render() {
   return (
-    <div className="window">
+    <div className="window home" id="home">
+        <a href="#home" className="window-topbar"></a>
       <div className="banner"></div>
+      <div className="window-content">
       {this.state.featured.length > 0 &&
         <div className="featured">
           <div className="left">
@@ -58,10 +60,11 @@ class App extends Component {
         <ul className="post-list">{this.state.posts.map(post =>
             <li key={post["id"].toString()}><Post data={post} /></li>
           )}</ul>   
+      </div>
       </div>   
     </div>
   );
   }
 }
 
-export default App;
+export default Home;

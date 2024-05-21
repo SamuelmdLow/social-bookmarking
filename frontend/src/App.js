@@ -6,8 +6,9 @@ import Post from './posts/post'
 import Featured from './featured';
 import Cover from './cover';
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from './Home'
+import { Link, Outlet, useLoaderData, } from "react-router-dom";
+import Home from './Home';
+import PostPage from './PostPage';
 
 class App extends Component {
 
@@ -15,13 +16,12 @@ class App extends Component {
   return (
     <>
     <div className="tab-container">
-    <Link to="/"><div className="tab">Home</div></Link>
+    <a href="#home"><div className="tab">Home</div></a>
     </div>
-    <div className="window-container">
+    <div id="window" className="window-container">
       <Home/>
-      <Routes>
-        <Route path='/post/:postId' element={ <div className="window"><h1>Sorry, what?</h1></div> } />
-      </Routes>
+      <Outlet />
+      <div className="windowEnd"></div>
     </div>
     </>
   );
