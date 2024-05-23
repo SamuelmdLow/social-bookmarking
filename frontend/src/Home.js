@@ -43,7 +43,6 @@ class Home extends Component {
       {this.state.featured.length > 0 &&
         <div className="featured">
           <div className="left">
-            <div className="cover-branding"></div>
             <Cover id={this.state.featured[0].post} />
           </div>
         <div className="right">

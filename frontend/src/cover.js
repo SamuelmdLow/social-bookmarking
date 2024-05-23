@@ -29,7 +29,10 @@ class Cover extends Component {
         return (
             <article className='cover'>
                 <PostLink link={this.state.post.link} />
-                <img src="https://www.tubbdoose.com/static/posts/summer2023/summer2023.png"></img>
+                <div className="cover-image">
+                <div className="cover-branding"></div>
+                <img src={this.state.post.image}></img>
+                </div>
                 <h1>{this.state.post.title}</h1>
                 <Link className="wrapper-link" to={"/post/" + this.state.post.id}></Link>
             </article>

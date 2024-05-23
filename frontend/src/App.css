@@ -182,8 +182,8 @@ h2 {
   position: absolute;
   width: 250px;
   height: 315px;
-  top: 40px;
-  margin-left: 2em;
+  bottom: -40px;
+  left: -125px;
 
   background-image: url('https://www.tubbdoose.com/static/images/intro.svg');
   background-size: contain;
@@ -210,9 +210,15 @@ h2 {
   color: #aeaeae;
 }
 
-.cover > img {
+.cover-image {
+  position: relative;
   width: 100%;
   max-width: 400px;
+}
+
+
+.cover-image > img {
+  width: 100%;
 }
 
 .cover > h1 {
