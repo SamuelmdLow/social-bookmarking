@@ -282,10 +282,11 @@ h2 {
   flex-grow: 1;
 }
 
-div.post_icon {
-  width: 75px;
+img.post_icon {
+  width: 60px;
   border-radius: 10px;
   border: 2px #EEE solid;
+  margin: 0 auto;
   margin-top: 0.4em;
 
   aspect-ratio: 1;
@@ -322,11 +323,19 @@ p.post_date::before {
 .bookmark-comment {
   background-color: white;
   width: fit-content;
+  height: fit-content;
   position: relative;
   margin-top: 1em;
   max-width: 300px;
   padding: 1em;
   border-radius: 20px;
+}
+
+.bookmark-preview{
+  width: 50%;
+  img {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 1000px) {

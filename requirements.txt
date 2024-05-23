@@ -1,0 +1,5 @@
+django-filter==24.2
+djangorestframework==3.15.1
+django-cors-headers==4.3.1
+django==5.0.6
+bs4==0.0.2

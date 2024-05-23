@@ -10,7 +10,7 @@ export default function Post({data}) {
     <div className="post">
         <div className="post_left">
             <p className="post_date">{format(data["date"], "d/M/y")}</p>
-            <div className="post_icon"></div>
+            <img className="post_icon" src={data["icon"]}></img>
         </div>
 
         <div className="post_right">

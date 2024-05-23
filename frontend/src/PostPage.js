@@ -37,6 +37,7 @@ export default function PostPage() {
                 <div className="bookmark-bg">
                     <div className="bookmark-preview">
                     <PostLink link={data["link"]} />
+                    <img src={data["image"]}></img>
                     </div>
                     <div className="bookmark-comment">
                         <p className="post_date">{format(data["date"], "d/M/y")}</p>
