@@ -110,7 +110,6 @@ h2 {
 
 .window {
   background-color: #6F6373;
-  filter: drop-shadow(0 3px 3px black);
   max-width: 1000px;
   height: calc(100% - 10px);
   margin: 0px 10px;

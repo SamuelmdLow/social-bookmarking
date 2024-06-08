@@ -1,18 +1,16 @@
 body {
-    background-color: #2C2C2C;
-    background-image: url('/public/tile.svg');
+    background-color: #CEE5FD;
 }
 
 .tab {
-    border-color: #6f6373;
-    background-color: #6F6373;
+    border-color: #305478;
+    background-color: #305478;
     color: white;
 }
 
 .window {
-    background-color: #6F6373;
-    filter: drop-shadow(0 3px 3px black);
-    border: solid 5px #6F6373;
+    background-color: #305478;
+    border: solid 5px #305478;
 }
 
 .window-content {
@@ -35,8 +33,8 @@ body {
     position: absolute;
     width: 250px;
     height: 315px;
-    bottom: -40px;
-    left: -125px;
+    bottom: -50px;
+    left: -160px;
   
     background-image: url('https://www.tubbdoose.com/static/images/intro.svg');
     background-size: contain;
