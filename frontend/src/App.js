@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './branding.css';
 import axios from "axios";
 import Post from './posts/post'
 import Featured from './featured';
@@ -17,6 +18,7 @@ class App extends Component {
     <>
     <div className="tab-container">
     <a href="#home"><div className="tab">Home</div></a>
+    <a href="#writePost" className="post-tab"><div className="tab">🖋️Post</div></a>
     </div>
     <div id="window" className="window-container">
       <Home/>

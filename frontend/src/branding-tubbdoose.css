@@ -1,0 +1,66 @@
+body {
+    background-color: #2C2C2C;
+    background-image: url('/public/tile.svg');
+}
+
+.tab {
+    border-color: #6f6373;
+    background-color: #6F6373;
+    color: white;
+}
+
+.window {
+    background-color: #6F6373;
+    filter: drop-shadow(0 3px 3px black);
+    border: solid 5px #6F6373;
+}
+
+.window-content {
+    background-color: white;
+}
+
+.window-topbar {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.banner {
+    height: 215px;
+  
+    background-image: url('/public/banner.png');
+}
+
+.cover-branding {
+    position: absolute;
+    width: 250px;
+    height: 315px;
+    bottom: -40px;
+    left: -125px;
+  
+    background-image: url('https://www.tubbdoose.com/static/images/intro.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+  
+    z-index: 1;
+}
+
+.cover > a {
+    color: #aeaeae;
+}
+
+img.post_icon {
+    border-color: #EEE;
+}
+
+.bookmark-comment {
+    background-color: white;
+    border-radius: 20px;
+}
+
+@media only screen and (min-width: 750px) {
+    .cover > h1::first-letter {
+      margin-left: 250px;
+    }
+}

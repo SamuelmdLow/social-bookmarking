@@ -34,6 +34,18 @@ class Home extends Component {
     .catch((err) => console.log(err));
   };
 
+  groupPosts(total, value, index) {
+    if(index === 0 ) {
+      total = [];
+    }
+    if(index % 3 === 0) {
+      total.push([value]);
+    } else {
+      total[total.length-1].push(value);
+    }
+    return total;
+  }
+
   render() {
   return (
     <div className="window home" id="home">
@@ -55,10 +67,18 @@ class Home extends Component {
 
       <div className="feed">
         <h1>Feed</h1>
-        <h2>This Week</h2>
-        <ul className="post-list">{this.state.posts.map(post =>
-            <li key={post["id"].toString()}><Post data={post} /></li>
-          )}</ul>   
+        {this.state.posts.reduce(this.groupPosts, []).map(postGroup =>
+        <div className="feed-flex">
+            <div className="left">
+            <h2>This Week</h2>
+            <ul className="post-list">{postGroup.map(post =>
+              <li key={post["id"].toString()}><Post data={post} /></li>
+            )}
+            </ul>
+            </div>
+            <div className="right"></div>
+          </div>
+          )}
       </div>
       </div>   
     </div>
