@@ -37,6 +37,7 @@ export default function PostPage() {
                 <div className="bookmark-bg">
                     <div className="bookmark-preview">
                     <PostLink link={data["link"]} />
+                    <h1>{data.page_title}</h1>
                     <img src={data["image"]}></img>
                     </div>
                     <div className="bookmark-comment">

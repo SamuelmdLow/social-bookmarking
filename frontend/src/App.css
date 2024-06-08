@@ -332,7 +332,7 @@ p.post_date::before {
   width: fit-content;
   height: fit-content;
   position: relative;
-  margin-top: 1em;
+  margin-top: 2em;
   max-width: 300px;
   padding: 1em;
   border-radius: 20px;
@@ -343,6 +343,10 @@ p.post_date::before {
   img {
     width: 100%;
   }
+}
+
+.bookmark-preview h1 {
+  font-size: 1.5em;
 }
 
 @media only screen and (max-width: 1000px) {
