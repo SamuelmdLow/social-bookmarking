@@ -22,6 +22,7 @@ from posts import views
 router = routers.DefaultRouter()
 router.register(r'posts', views.PostView, 'posts')
 router.register(r'featured_posts', views.FeaturedPostView, 'featured_posts')
+router.register(r'tags', views.TagView, 'tags')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

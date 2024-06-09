@@ -125,6 +125,10 @@ h2 {
   scroll-margin-right: 20px;
 }
 
+.window:first-child {
+  margin-left: 20px;
+}
+
 .window-content {
   background-color: white;
   height: fit-content;
@@ -288,6 +292,10 @@ h2 {
   flex-grow: 1;
 }
 
+.post_right p {
+  margin-top: 0.5em;
+}
+
 img.post_icon {
   width: 60px;
   border-radius: 10px;
@@ -315,6 +323,34 @@ p.post_date::before {
   right: 0;
   left: 0;
   border-bottom: 1px solid black;
+}
+
+ul.tag-list {
+  position: relative;
+  padding: 0;
+  list-style: none;
+  z-index: 1;
+}
+
+ul.tag-list > li {
+  display: inline;
+  margin-right: 1em;
+  border-radius: 1em;
+  padding: 0.35em 0.75em;
+
+
+  background-color: var(--main_colour);
+  color: var(--contrast_colour);
+  font-size: 10px;
+}
+
+ul.tag-list > li:hover {
+  filter: drop-shadow(0 0 2px var(--contrast_colour));
+}
+
+ul.tag-list > li > a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .bookmark-bg {
@@ -355,11 +391,15 @@ p.post_date::before {
   }
   .window {
     margin: 0;
+    margin-left: 10px;
     width: 100%;
     scroll-snap-align: start;
     border-left: none;
     border-right: none;
     border-radius: 0;
+  }
+  .window:first-child {
+    margin-left: 0;
   }
   .cover-branding {
     max-width: 37%;
@@ -419,11 +459,5 @@ p.post_date::before {
   }
   .window {
     border: none;
-  }
-}
-
-@media only screen and (min-width: 750px) {
-  .window:first-child {
-    margin-left: 20px;
   }
 }

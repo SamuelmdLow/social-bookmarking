@@ -1,4 +1,15 @@
 from django.db import models
+from colorfield.fields import ColorField
+
+class Tag(models.Model):
+    name = models.CharField(max_length=50)
+    slug = models.SlugField(default="", null=False)
+    colour = ColorField(default="#EEEEEE")
+    contrast_colour = ColorField(default="#4E4E4E")
+    use_count = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
@@ -8,6 +19,7 @@ class Post(models.Model):
     page_title = models.CharField(max_length=200, blank=True, null=True)
     image = models.URLField(blank=True, null=True,)
     icon = models.URLField(blank=True, null=True,)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     def save(self, *args, **kwargs):
         import urllib.request

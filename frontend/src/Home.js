@@ -9,13 +9,16 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 class Home extends Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
       featured: [],
       posts: [],
+      tags: {},
     };
+    console.log("home tags");
+    console.log(this.state.tags);
   }
 
   componentDidMount() {
@@ -38,8 +41,7 @@ class Home extends Component {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     const today = new Date();
-    const date = new Date(value["date"]);  
-    console.log(value["title"]);
+    const date = new Date(value["date"]);
     if(index === 0 ) {
       total = [];
     }
@@ -47,7 +49,7 @@ class Home extends Component {
     const delta = new Date(today.getTime()-date.getTime());
 
     if(Math.abs(delta.getUTCDate() - 1) <= 7 && delta.getUTCMonth()==0 && delta.getUTCFullYear()==1970) {
-      console.log(delta.getUTCDate() - 1);
+
       if(index === 0 ) {
         total.push({"header": "This Week", "posts": []});
       }
@@ -60,8 +62,7 @@ class Home extends Component {
         total.push({"header": months[date.getMonth()] + year, "posts": []});
       } else {
         const last_date = new Date(total[total.length-1]["posts"][total[total.length-1]["posts"].length-1]["date"]);
-        console.log(months[last_date.getMonth()]);
-        console.log(months[date.getMonth()]);
+
         if(last_date.getMonth() != date.getMonth() || last_date.getFullYear()!=date.getFullYear()) {
           total.push({"header": months[date.getMonth()] + year, "posts": []});
         } 
@@ -97,7 +98,7 @@ class Home extends Component {
             <div className="left">
             <h2>{postGroup["header"]}</h2>
             <ul className="post-list">{postGroup["posts"].map(post =>
-              <li key={post["id"].toString()}><Post data={post} /></li>
+              <li key={post["id"].toString()}><Post data={post} all_tags={this.state.tags} set_tags={(t) => this.setState({tags : t})} /></li>
             )}
             </ul>
             </div>
