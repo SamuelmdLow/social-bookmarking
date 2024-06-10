@@ -45,14 +45,6 @@ body {
     z-index: 1;
 }
 
-.featured {
-    margin-top: 0;
-}
-
-.featured > .right > ol {
-    margin-top: 0;
-}
-
 img.post_icon {
     border-color: #EEE;
 }

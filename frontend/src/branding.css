@@ -31,6 +31,18 @@ body {
     background-size: cover;
 }
 
+.featured {
+    margin-top: -150px;
+}
+
+.featured > .right > ol {
+    margin-top: 4em;
+}
+
+.cover > .post_link {
+    color: #e1e1e1;
+}
+
 .cover-branding {
     position: absolute;
     width: 165px;
