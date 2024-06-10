@@ -24,9 +24,10 @@ body {
 }
 
 .banner {
-    height: 215px;
+    height: 335px;
   
-    background-image: url('/public/banner.png');
+    background-image: url('https://www.tubbdoose.com/static/images/teabanner.png');
+    background-size: contain;
 }
 
 .cover-branding {
@@ -44,8 +45,12 @@ body {
     z-index: 1;
 }
 
-.cover > a {
-    color: #aeaeae;
+.featured {
+    margin-top: 0;
+}
+
+.featured > .right > ol {
+    margin-top: 0;
 }
 
 img.post_icon {
