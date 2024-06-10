@@ -57,7 +57,8 @@ export default function PostPage() {
                 <div className="bookmark-banner" style={{"--main_colour":colours["main"], "--contrast_colour": colours["contrast"]}}>
                     <div className="bookmark-preview">
                     <PostLink link={data["link"]} />
-                    <h1>{data.page_title}</h1>
+                    <a className="featured-link" href={data["link"]} target='blank'><h1>{data.page_title}</h1></a>
+                    <p>{data.page_desc}</p>
                     <img src={data["image"]}></img>
                     </div>
                     <div className="bookmark-comment">

@@ -407,12 +407,16 @@ ul.tag-list > li > a {
   margin-right: 2em;
   img {
     width: 100%;
+    border-radius: 0 0 1em 1em;
+  }
+  h1 {
+    padding-bottom: 0.25em;
+    border-bottom: 2px solid;
+  
+    font-size: 1.5em;
   }
 }
 
-.bookmark-preview h1 {
-  font-size: 1.5em;
-}
 
 @media only screen and (max-width: 1000px) {
   .window-container {

@@ -17,6 +17,7 @@ class Post(models.Model):
     link = models.URLField()
     date = models.DateTimeField()
     page_title = models.CharField(max_length=200, blank=True, null=True)
+    page_desc = models.TextField(blank=True, null=True)
     image = models.URLField(blank=True, null=True,)
     icon = models.URLField(blank=True, null=True,)
     tags = models.ManyToManyField(Tag, blank=True)
@@ -32,6 +33,18 @@ class Post(models.Model):
         page_title = soup.findAll("title")
         if(len(page_title)>0):
             self.page_title = page_title[0].decode_contents()
+        else:
+            page_title = soup.findAll("meta", {"property": "og:title"})
+            if(len(page_title)>0):
+                self.page_title = page_title[0]["content"]
+
+        page_desc = soup.findAll("meta", {"name": "description"})
+        if(len(page_desc)>0):
+            self.page_desc = page_desc[0]["content"]
+        else:
+            page_desc = soup.findAll("meta", {"property": "og:description"})
+            if(len(page_desc)>0):
+                self.page_desc = page_desc[0]["content"]
 
         image = soup.findAll("meta", {"property": "og:image"})
         if(len(image)>0):
