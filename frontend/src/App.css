@@ -460,9 +460,7 @@ ul.tag-list > li > a {
     display: none;
   }
   .banner {
-    height: 140px;
-    background-size: 100% auto;
-    background-position-y: 27px;
+    display: none;
   }
   .featured {
     flex-direction: column;
@@ -508,6 +506,7 @@ ul.tag-list > li > a {
   }
   .feed-flex > .left, .feed-flex > .right {
     width: 100%;
+    margin: 0;
   }
 }
 
