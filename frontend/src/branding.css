@@ -27,7 +27,8 @@ body {
 
 .banner {
     height: 281px;
-    background-image: url('/public/banner.png');
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9a/Ausblick_vom_Gipfel_der_K%C3%B6sseine.jpg');
+    background-size: cover;
 }
 
 .cover-branding {
@@ -43,10 +44,6 @@ body {
     z-index: 1;
 }
 
-.cover > a {
-    color: #aeaeae;
-}
-
 img.post_icon {
     border-color: #EEE;
 }
@@ -54,10 +51,4 @@ img.post_icon {
 .bookmark-comment {
     background-color: white;
     border-radius: 20px;
-}
-
-@media only screen and (min-width: 750px) {
-    .cover > h1::first-letter {
-        margin-left: 170px;
-    }
 }

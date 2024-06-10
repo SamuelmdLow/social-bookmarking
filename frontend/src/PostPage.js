@@ -9,6 +9,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, useLoaderData } from "react-router-dom";
 import PostLink from './posts/postLink';
 import { format } from "date-fns";
+import TagList from './posts/tagList';
+import { useState } from 'react';
 
 async function getPost(id) {
     var data = {title: 'hi'};
@@ -20,21 +22,39 @@ async function getPost(id) {
     return data;
 }
 
+async function getColours(tags) {
+    console.log(tags);
+    var colours = {"main": "#EEE", "contrast": "#000"};
+    if(tags.length > 0) {
+        await axios
+        .get('/api/tags/'+tags[0])
+        .then((res) => {
+            colours["main"] = res.data["colour"];
+            colours["contrast"] = res.data["contrast_colour"];
+            console.log(colours);
+        })
+        .catch((err) => console.log(err));
+    }
+    console.log(colours);
+    return colours;
+}
+
 export async function loader({ params }) {
     const data = await getPost(params.postId);
-    return {data};
+    const colours = await getColours(data["tags"]);
+    return {data, colours};
 }
 
 export default function PostPage() {
-    const {data} = useLoaderData();
-
+    const {data, colours} = useLoaderData();
+    
       return (
         <div className="window" id={data.id.toString()}>
             <a href={"#" + data.id.toString()} className="window-topbar">
                 bookmark/{data.title}
             </a>
             <div className="window-content">
-                <div className="bookmark-bg">
+                <div className="bookmark-banner" style={{"--main_colour":colours["main"], "--contrast_colour": colours["contrast"]}}>
                     <div className="bookmark-preview">
                     <PostLink link={data["link"]} />
                     <h1>{data.page_title}</h1>
@@ -43,6 +63,7 @@ export default function PostPage() {
                     <div className="bookmark-comment">
                         <p className="post_date">{format(data["date"], "d/M/y")}</p>
                         <p><b>{data.title}</b> {data.desc}</p>
+                        {data["tags"].length > 0 &&  <TagList tags_id={data["tags"]} /> }
                     </div>
                 </div>
             </div>

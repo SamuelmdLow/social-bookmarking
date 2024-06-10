@@ -30,8 +30,9 @@ class Featured extends Component {
             <li>
                 <article>
                 <PostLink link={this.state.post.link} />
-                <h1>{this.state.post.title}</h1>
-                <Link className="wrapper-link" to={"/post/" + this.state.post.id}></Link>
+                <Link className="featured-link" to={"/post/" + this.state.post.id}>
+                    <h1>{this.state.post.title}</h1>
+                </Link>
                 </article>
             </li>
         );

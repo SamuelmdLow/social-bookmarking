@@ -167,7 +167,8 @@ h2 {
 
 .featured {
   display: flex;
-  margin-top: 60px;
+  margin-top: -130px;
+  margin-bottom: 1em;
 }
 
 .featured > .left {
@@ -184,17 +185,34 @@ h2 {
   position: relative;
   float: right;
   margin-left: 2em;
+
+  background-color: white;
+  border-radius: 1em 0.5em 0 0;
+  padding-top: 1em;
 }
 
-.cover > * {
+
+
+.cover > .featured-link > * {
   float: right;
   text-align: right;
 }
 
-.cover > a {
+.featured-link {
+  color: black;
+  text-decoration: none;
+}
+
+.featured-link:hover > * {
+  text-decoration: underline;
+}
+
+.cover > .post_link {
   margin-bottom: 1px;
+  margin-right: 1.5em;
   float: right;
   color: #aeaeae;
+  text-align: right;
 }
 
 .cover-image {
@@ -208,7 +226,7 @@ h2 {
   width: 100%;
 }
 
-.cover > h1 {
+.cover h1 {
   margin: 0;
   text-align: right;
   line-height: 1.2em;
@@ -220,8 +238,16 @@ h2 {
 }
 
 .featured > .right > ol {
-  margin-top: 50px;
+  padding-top: 2em;
+  padding-left: 3.5em;
+
+  margin-top: 3em;
+  margin-right: 2em;
   margin-bottom: 0px;
+
+  border-radius: 1em;
+
+  background-color: white;
 }
 
 .featured > .right > ol > li {
@@ -244,7 +270,7 @@ h2 {
   bottom: 25px;
 }
 
-.featured > .right > ol > li > article > h1 {
+.featured > .right > ol > li > article h1 {
   margin: 0;
   font-size: 1.2em;
 }
@@ -341,7 +367,9 @@ ul.tag-list > li {
 
   background-color: var(--main_colour);
   color: var(--contrast_colour);
-  font-size: 10px;
+  font-size: 0.7em;
+  font-family: monospace;
+  text-transform: uppercase;
 }
 
 ul.tag-list > li:hover {
@@ -353,28 +381,33 @@ ul.tag-list > li > a {
   color: inherit;
 }
 
-.bookmark-bg {
-  background-color: #ff0000ac;
+.bookmark-banner {
   width: calc(100% - 4em);
   height: fit-content;
   padding: 2em;
   display: flex;
   justify-content: space-between;
+
+  background-color: var(--main_colour);
+  color: var(--contrast_colour);
 }
 
 .bookmark-comment {
-  background-color: white;
   width: fit-content;
   height: fit-content;
   position: relative;
   margin-top: 2em;
-  max-width: 300px;
   padding: 1em;
   border-radius: 20px;
+
+  background-color: white;
+  color: black;
 }
 
 .bookmark-preview{
   width: 50%;
+  flex-shrink: 0;
+  margin-right: 2em;
   img {
     width: 100%;
   }
@@ -444,7 +477,7 @@ ul.tag-list > li > a {
     float: none;
     max-width: none;
   }
-  .cover > h1 {
+  .cover h1 {
     text-align: left;
     margin: 0 1em;
   }
@@ -459,5 +492,18 @@ ul.tag-list > li > a {
   }
   .window {
     border: none;
+  }
+
+  .feed-flex {
+    flex-direction: column;
+  }
+  .feed-flex > .left, .feed-flex > .right {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .cover h1::first-letter {
+      margin-left: 170px;
   }
 }
