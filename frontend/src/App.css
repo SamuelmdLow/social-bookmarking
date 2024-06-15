@@ -14,7 +14,7 @@ a.post_link {
   max-width: 70%;
   display: block;
 
-  color: black;
+  color: inherit;
   font-weight: 700;
   font-size: 11px;
   white-space: nowrap;
@@ -197,7 +197,7 @@ h2 {
 }
 
 .featured-link {
-  color: black;
+  color: inherit;
   text-decoration: none;
 }
 
@@ -283,6 +283,16 @@ h2 {
 
 .feed-flex > .left {
   width: 50%;
+}
+
+.feed-flex > .left > button {
+  margin-left: 50%;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 1em;
+
+  transform: translateX(-50%);
+  cursor: pointer;
 }
 
 .feed-flex > .right {

@@ -17,6 +17,7 @@ class Home extends Component {
       featured: [],
       posts: [],
       tags: {},
+      page: 2,
     };
     console.log("home tags");
     console.log(this.state.tags);
@@ -36,6 +37,21 @@ class Home extends Component {
     .get('/api/featured_posts')
     .then((res) => this.setState({featured: res.data.results}))
     .catch((err) => console.log(err));
+  };
+
+  loooog = () => {
+    console.log("log!");
+    axios
+    .get('/api/posts/?ordering=-date&page=' + String(this.state.page))
+    .then((res) => {
+      this.setState({posts: this.state.posts.concat(res.data.results)});
+      this.setState({page: this.state.page + 1});
+      })
+    .catch((err) => {
+      console.log(err);
+      document.getElementById("feed-end").remove();
+    }
+    );
   };
 
   render() {
@@ -60,6 +76,11 @@ class Home extends Component {
       <div className="feed">
         <h1>Feed</h1>
         <FeedGroup posts={this.state.posts} all_tags={this.state.tags} set_tags={(t) => this.setState({tags : t})} />
+        <div id="feed-end" class="feed-flex">
+          <div class="left">
+            <button onClick={this.loooog}>Load More</button>
+          </div>
+        </div>
       </div>
       </div>   
     </div>
