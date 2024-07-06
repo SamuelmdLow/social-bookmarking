@@ -11,6 +11,7 @@ import {
 
 import Home from './Home';
 import PostPage, {loader as postLoader} from './PostPage';
+import TagPage, {loader as tagLoader} from './TagPage';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,12 @@ const router = createBrowserRouter([
         path: "post/:postId",
         element: <PostPage />,
         loader: postLoader,
+        onEnter: () => {console.log('Entered /')},
+      },
+      {
+        path: "tag/:tagSlug",
+        element: <TagPage />,
+        loader: tagLoader,
         onEnter: () => {console.log('Entered /')},
       },
     ],

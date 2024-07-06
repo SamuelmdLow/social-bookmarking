@@ -56,7 +56,7 @@ class Home extends Component {
 
   render() {
   return (
-    <div className="window home" id="home">
+    <div className="window home full-window" id="home">
         <a href="#home" className="window-topbar"></a>
       <div className="banner"></div>
       <div className="window-content">

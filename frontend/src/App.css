@@ -110,7 +110,7 @@ h2 {
 
 .window {
   background-color: #6F6373;
-  max-width: 1000px;
+  max-width: 800px;
   height: calc(100% - 10px);
   margin: 0px 10px;
   padding: 0;
@@ -123,6 +123,15 @@ h2 {
   overflow: auto;
   scroll-margin-left: 20px;
   scroll-margin-right: 20px;
+}
+
+.window.full-window {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.window.thin-window {
+  width: fit-content;
 }
 
 .window:first-child {
@@ -291,6 +300,7 @@ h2 {
   border: none;
   border-radius: 1em;
 
+  font-family: monospace;
   transform: translateX(-50%);
   cursor: pointer;
 }
@@ -309,7 +319,7 @@ h2 {
 }
 
 .post {
-  width: 100%;
+  width: 400px;
   max-width: 400px;
   margin: 2em 0;
   display: flex;
@@ -392,18 +402,24 @@ ul.tag-list > li > a {
   width: calc(100% - 4em);
   height: fit-content;
   padding: 2em;
-  display: flex;
   justify-content: space-between;
 
   background-color: var(--main_colour);
   color: var(--contrast_colour);
 }
 
+.bookmark-banner h1 {
+  margin-top: 0;
+}
+
+.bookmark-banner--flex {
+  display: flex;
+}
+
 .bookmark-comment {
   width: fit-content;
   height: fit-content;
   position: relative;
-  margin-top: 2em;
   padding: 1em;
   border-radius: 20px;
 
@@ -411,19 +427,21 @@ ul.tag-list > li > a {
   color: black;
 }
 
+.bookmark-comment .post_date {
+  margin: 0;
+  font-size: 11px;
+}
+
 .bookmark-preview{
-  width: 50%;
+  max-width: 50%;
   flex-shrink: 0;
   margin-right: 2em;
   img {
     width: 100%;
     border-radius: 0 0 1em 1em;
   }
-  h1 {
-    padding-bottom: 0.25em;
-    border-bottom: 2px solid;
-  
-    font-size: 1.5em;
+  p {
+    margin: 0.5em;
   }
 }
 
@@ -524,5 +542,22 @@ ul.tag-list > li > a {
 @media only screen and (min-width: 750px) {
   .cover h1::first-letter {
       margin-left: 170px;
+  }
+}
+
+.window.tag-page {
+  background-color: var(--main_colour);
+
+  h1 {
+    margin-top: 0;
+    text-align: center;
+    text-decoration: underline;
+  }
+
+  .window-topbar {
+    height: 2em;
+  }
+  .feed {
+    padding-top: 1em;
   }
 }

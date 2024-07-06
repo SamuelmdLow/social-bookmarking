@@ -55,16 +55,18 @@ export default function PostPage() {
             </a>
             <div className="window-content">
                 <div className="bookmark-banner" style={{"--main_colour":colours["main"], "--contrast_colour": colours["contrast"]}}>
-                    <div className="bookmark-preview">
-                    <PostLink link={data["link"]} />
+                     <PostLink link={data["link"]} />
                     <a className="featured-link" href={data["link"]} target='blank'><h1>{data.page_title}</h1></a>
-                    <p>{data.page_desc}</p>
-                    <img src={data["image"]}></img>
-                    </div>
-                    <div className="bookmark-comment">
-                        <p className="post_date">{format(data["date"], "d/M/y")}</p>
-                        <p><b>{data.title}</b> {data.desc}</p>
-                        {data["tags"].length > 0 &&  <TagList tags_id={data["tags"]} /> }
+                    <div className='bookmark-banner--flex'>
+                        <div className="bookmark-preview">
+                            <img src={data["image"]}></img>
+                            <p>{data.page_desc}</p>
+                        </div>
+                        <div className="bookmark-comment">
+                            <p className="post_date">{format(data["date"], "d/M/y")}</p>
+                            <p><b>{data.title}</b> {data.desc}</p>
+                            {data["tags"].length > 0 &&  <TagList tags_id={data["tags"]} /> }
+                        </div>
                     </div>
                 </div>
             </div>
