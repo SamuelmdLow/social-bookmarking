@@ -10,7 +10,7 @@ body {
 
 .window {
     background-color: #305478;
-    border: solid 5px #305478;
+    border-color: #305478;
 }
 
 .window-content {
@@ -52,4 +52,10 @@ img.post_icon {
 .bookmark-comment {
     background-color: white;
     border-radius: 20px;
+}
+
+@media only screen and (min-width: 750px) {
+    .window {
+        border-width: 5px;
+    }
 }

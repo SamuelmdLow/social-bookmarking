@@ -2,7 +2,7 @@ import React from 'react';
 import axios from "axios";
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import { App, MobileApp } from './App';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
@@ -34,9 +34,34 @@ const router = createBrowserRouter([
   },
 ]);
 
+const mobileRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <MobileApp />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "post/:postId",
+        element: <PostPage />,
+        loader: postLoader,
+        onEnter: () => {console.log('Entered /')},
+      },
+      {
+        path: "tag/:tagSlug",
+        element: <TagPage />,
+        loader: tagLoader,
+        onEnter: () => {console.log('Entered /')},
+      },
+    ],
+  },
+]);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-      <RouterProvider router={router} />    
+      {document.documentElement.offsetWidth > 750 ? <RouterProvider router={router} /> : <RouterProvider router={mobileRouter} /> }  
   </React.StrictMode>
 );
 

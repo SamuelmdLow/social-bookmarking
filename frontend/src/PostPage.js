@@ -45,11 +45,22 @@ export async function loader({ params }) {
     return {data, colours};
 }
 
+const scrollToPage = (id) => {
+    const windowContainer = document.getElementById("window");
+    const page = document.getElementById(id);
+
+    if(windowContainer && page) {
+        windowContainer.scrollTo(page.offsetLeft, 0);                
+    } else {
+        console.log("failed");
+    }
+}
+
 export default function PostPage() {
     const {data, colours} = useLoaderData();
     
       return (
-        <div className="window" id={data.id.toString()}>
+        <div className="window" id={data.id.toString()} onLoad={() => scrollToPage(data.id.toString())}>
             <a href={"#" + data.id.toString()} className="window-topbar">
                 bookmark/{data.title}
             </a>
@@ -59,7 +70,7 @@ export default function PostPage() {
                     <a className="featured-link" href={data["link"]} target='blank'><h1>{data.page_title}</h1></a>
                     <div className='bookmark-banner--flex'>
                         <div className="bookmark-preview">
-                            <img src={data["image"]}></img>
+                            {data["image"] != null && <img src={data["image"]}></img> }
                             <p>{data.page_desc}</p>
                         </div>
                         <div className="bookmark-comment">

@@ -11,13 +11,13 @@ import { Link, Outlet, useLoaderData, } from "react-router-dom";
 import Home from './Home';
 import PostPage from './PostPage';
 
-class App extends Component {
+export class App extends Component {
 
   render() {
   return (
     <>
     <div className="tab-container">
-    <a href="#home"><div className="tab">Home</div></a>
+    <Link to="/"><div className="tab">Home</div></Link>
     <a href="#writePost" className="post-tab"><div className="tab">🖋️Post</div></a>
     </div>
     <div id="window" className="window-container">
@@ -30,4 +30,20 @@ class App extends Component {
   }
 }
 
-export default App;
+export class MobileApp extends Component {
+
+  render() {
+  return (
+    <>
+    <div className="tab-container">
+    <Link to="/"><div className="tab">Home</div></Link>
+    <a href="#writePost" className="post-tab"><div className="tab">🖋️Post</div></a>
+    </div>
+    <div id="window" className="window-container">
+      <Outlet />
+      <div className="windowEnd"></div>
+    </div>
+    </>
+  );
+  }
+}
