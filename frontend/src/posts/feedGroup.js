@@ -47,8 +47,19 @@ function groupPostsByDate(total, value, index) {
     return total;
 }
 
-export default function FeedGroup({posts, all_tags, set_tags}) {
+var lastHeader = "";
 
+function isNewHeader(nextHeader) {
+  if (lastHeader == nextHeader) {
+    return false;
+  } else {
+    lastHeader = nextHeader;
+    return true;
+  }
+}
+
+export default function FeedGroup({posts, all_tags, set_tags}) {
+    
     return (
       <>
         {groupPosts(posts).map(postGroup =>
@@ -56,8 +67,7 @@ export default function FeedGroup({posts, all_tags, set_tags}) {
                 <div className="left">
                 {postGroup.reduce(groupPostsByDate, []).map(postGroupedByDate =>
                   <>
-                    
-                        <h2>{postGroupedByDate["header"]}</h2>
+                        {isNewHeader(postGroupedByDate["header"]) && <h2 id={postGroupedByDate["header"].replace(" ", "_")}>{postGroupedByDate["header"]}</h2>}
                         <ul className="post-list">{postGroupedByDate["posts"].map(post =>
                           <li key={post["id"].toString()}><Post data={post} all_tags={all_tags} set_tags={set_tags} /></li>
                         )}</ul>

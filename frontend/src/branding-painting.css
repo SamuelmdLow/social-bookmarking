@@ -1,0 +1,111 @@
+body {
+    background-color: #2C2C2C;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/54/Paul_von_Franken_-_Dorf_im_Gebirge_%281868%29.jpg');
+    background-size: 100% auto;
+    color: white;
+    background-position: left bottom;
+}
+
+.tab {
+    border-color: #6f6373;
+    background-color: #6F6373;
+    color: white;
+}
+
+.window {
+    background: none;
+    filter: drop-shadow(0 3px 3px black);
+    border-color: #40433a;
+}
+
+.window-content {
+    background-color: #ffffff30;
+}
+
+.window-topbar {
+    color: #e3e3e3a8;
+    background-color: #40433a;
+    text-decoration: none;
+    font-weight: 600;
+}
+.home .window-topbar {
+    background: none;
+    margin-bottom: -1.5em;
+} 
+
+.banner {
+    height: 200px;
+    background-image: linear-gradient(#978a6bb2, #ffffff30);
+    text-align: center;
+}
+@media only screen and (min-width: 750px) {
+.featured {
+    margin-top: -100px;
+}
+.featured > .right {
+    margin-left: 1.5em;
+    color: black;
+}
+.featured > .right > ol {
+    padding-left: 3.5em;
+    margin-top: 4em;
+}
+.featured > .right > ol >li > article {
+    margin-right: 2em;
+}
+
+.cover > .post_link {
+    color: #e1e1e1;
+}
+}
+
+.cover-branding {
+    position: absolute;
+    width: 165px;
+    height: 315px;
+    bottom: -40px;
+    left: -100px;
+    background-image: url('/public/bust.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    z-index: 1;
+}
+
+.post {
+    padding: 1em;
+    background-color: #ffffff2e;
+    border-radius: 1em;
+    margin-bottom: 1.5em;
+    color: #DDD;
+}
+
+img.post_icon {
+    border-color: #EEE;
+}
+
+a.wrapper-link {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 1em;
+}
+
+.bookmark-comment {
+    background-color: white;
+    border-radius: 20px;
+}
+
+.bookmark-banner {
+    background: none;
+    color: white;
+}
+
+.window.tag-page {
+    background: none;
+}
+
+.tag-page .window-topbar {
+    background-color: var(--main_colour);
+}
