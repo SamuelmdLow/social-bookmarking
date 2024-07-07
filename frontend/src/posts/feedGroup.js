@@ -1,6 +1,18 @@
 import Post from "./post";
 
-function groupPosts(total, value, index) {
+function groupPosts(posts, num=4) {
+    var group = [];
+    var i =0;
+    while (i*num + num < posts.length) {
+      group.push(posts.slice(i*num, i*num+num));
+      i = i + 1;
+    }
+    group.push(posts.slice(i*num));
+    console.log(group);
+    return group;
+}
+
+function groupPostsByDate(total, value, index) {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     const today = new Date();
@@ -38,19 +50,24 @@ function groupPosts(total, value, index) {
 export default function FeedGroup({posts, all_tags, set_tags}) {
 
     return (
-        <>
-        {posts.reduce(groupPosts, []).map(postGroup =>
+      <>
+        {groupPosts(posts).map(postGroup =>
             <div className="feed-flex">
                 <div className="left">
-                    <h2>{postGroup["header"]}</h2>
-                    <ul className="post-list">{postGroup["posts"].map(post =>
-                    <li key={post["id"].toString()}><Post data={post} all_tags={all_tags} set_tags={set_tags} /></li>
-                    )}
-                    </ul>
+                {postGroup.reduce(groupPostsByDate, []).map(postGroupedByDate =>
+                  <>
+                    
+                        <h2>{postGroupedByDate["header"]}</h2>
+                        <ul className="post-list">{postGroupedByDate["posts"].map(post =>
+                          <li key={post["id"].toString()}><Post data={post} all_tags={all_tags} set_tags={set_tags} /></li>
+                        )}</ul>
+                  </>
+                  
+                )}
                 </div>
                 <div className="right"></div>
             </div>
         )}
-        </>
+      </>
     );
 }

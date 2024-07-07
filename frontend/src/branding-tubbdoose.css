@@ -24,7 +24,7 @@ body {
 }
 
 .banner {
-    height: 335px;
+    height: 275px;
   
     background-image: url('https://www.tubbdoose.com/static/images/teabanner.png');
     background-size: contain;
@@ -37,7 +37,7 @@ body {
     bottom: -50px;
     left: -160px;
   
-    background-image: url('https://www.tubbdoose.com/static/images/intro.svg');
+    background-image: url('/public/tubbdoose-icon.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position-y: bottom;
