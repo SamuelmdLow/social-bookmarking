@@ -5,11 +5,33 @@ import PostLink from './postLink';
 import { Link } from "react-router-dom";
 import TagList from './tagList';
 
+function formatePubDate(value) {
+    const today = new Date();
+    const date = new Date(value);
+
+    const second = 1000
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+
+    const delta = new Date(today.getTime()-date.getTime());
+
+    if ((delta/day) > 1) {
+        return String(Math.floor(delta/day)) + "d ago";
+    } else if (delta/hour > 1){
+        return String(Math.floor(delta/hour)) + "h ago"
+    } else if ((delta/minute) > 1) {
+        return String(Math.floor(delta/minute)) + "m ago"
+    } else {
+        return String(Math.floor(delta/second)) + "s ago"
+    }
+}
+
 export default function Post({data, all_tags, set_tags}) {
     return (
     <div className="post">
         <div className="post_left">
-            <p className="post_date">{format(data["date"], "d/M/y")}</p>
+            <p className="post_date">{formatePubDate(data["date"])}</p>
             <img className="post_icon" src={data["icon"]}></img>
         </div>
 

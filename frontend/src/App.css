@@ -138,7 +138,7 @@ h2 {
 }
 
 .window:first-child {
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 .window-content {
@@ -287,7 +287,7 @@ h2 {
 }
 
 .feed {
-  padding: 1.5em;
+  padding: 2em;
 }
 
 .feed-flex {
@@ -317,7 +317,9 @@ h2 {
   margin-bottom: 2em;
   max-width: 350px;
 }
-
+#feed-end {
+  margin-top: 1em;
+}
 .post-list {
   margin: 0;
   padding: 0;
