@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import PostSerializer, FeaturedPostSerializer, TagSerializer
-from .models import Post, FeaturedPosts, Tag
+from posts.serializers import PostSerializer, FeaturedPostSerializer, TagSerializer
+from posts.models import Post, FeaturedPosts, Tag
 from rest_framework import filters
 
 class PostView(viewsets.ModelViewSet):

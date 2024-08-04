@@ -16,11 +16,8 @@ class Home extends Component {
     this.state = {
       featured: [],
       posts: [],
-      tags: {},
       page: 2,
     };
-    console.log("home tags");
-    console.log(this.state.tags);
   }
 
   componentDidMount() {
@@ -40,7 +37,6 @@ class Home extends Component {
   };
 
   loooog = () => {
-    console.log("log!");
     axios
     .get('/api/posts/?ordering=-date&page=' + String(this.state.page))
     .then((res) => {
@@ -48,7 +44,7 @@ class Home extends Component {
       this.setState({page: this.state.page + 1});
       })
     .catch((err) => {
-      console.log(err);
+      console.log("End of feed");
       document.getElementById("feed-end").remove();
     }
     );
@@ -75,9 +71,9 @@ class Home extends Component {
 
       <div className="feed">
         <h1>Feed</h1>
-        <FeedGroup posts={this.state.posts} all_tags={this.state.tags} set_tags={(t) => this.setState({tags : t})} />
-        <div id="feed-end" class="feed-flex">
-          <div class="left">
+        <FeedGroup posts={this.state.posts} />
+        <div id="feed-end" className="feed-flex">
+          <div className="left">
             <button onClick={this.loooog}>Load More</button>
           </div>
         </div>

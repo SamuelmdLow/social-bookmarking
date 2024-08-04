@@ -27,7 +27,7 @@ function formatePubDate(value) {
     }
 }
 
-export default function Post({data, all_tags, set_tags}) {
+export default function Post({data}) {
     return (
     <div className="post">
         <div className="post_left">
@@ -37,7 +37,7 @@ export default function Post({data, all_tags, set_tags}) {
 
         <div className="post_right">
 
-        {data["tags"].length > 0 &&  <TagList tags_id={data["tags"]} all_tags={all_tags} set_tags={set_tags} /> }
+        {data["tags"].length > 0 && <TagList tags={data["tags"]} /> }
 
         <p><b>{data["title"]}</b> {data["desc"]}</p>
         <PostLink link={data["link"]} />

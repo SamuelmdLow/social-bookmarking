@@ -68,6 +68,9 @@ class Post(models.Model):
 
         super(Post, self).save(*args, **kwargs)
 
+    def get_full_url(self):
+        return "http://example.com/post/" + str(self.id)
+
     def __str__(self):
         return self.title
 

@@ -19,8 +19,6 @@ async function getPosts(tagSlug) {
     .get('/api/posts/?search='+ tagSlug +'&ordering=-date&page=1')
     .then((res) => data = res.data.results)
     .catch((err) => console.log(err));
-    console.log('psotsss');
-    console.log(data);
     return data;
 }
 

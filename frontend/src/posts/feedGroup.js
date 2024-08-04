@@ -8,7 +8,6 @@ function groupPosts(posts, num=4) {
       i = i + 1;
     }
     group.push(posts.slice(i*num));
-    console.log(group);
     return group;
 }
 
@@ -67,20 +66,20 @@ function isNewHeader(nextHeader) {
   }
 }
 
-export default function FeedGroup({posts, all_tags, set_tags}) {
+export default function FeedGroup({posts}) {
     
     return (
       <>
-        {groupPosts(posts).map(postGroup =>
-            <div className="feed-flex">
+        {groupPosts(posts).map((postGroup,index) =>
+            <div key={index} className="feed-flex">
                 <div className="left">
-                {postGroup.reduce(groupPostsByDate, []).map(postGroupedByDate =>
-                  <>
+                {postGroup.reduce(groupPostsByDate, []).map((postGroupedByDate, index) =>
+                  <div key={index}>
                         {isNewHeader(postGroupedByDate["header"]) && <h2 id={postGroupedByDate["header"].replace(" ", "_")}>{postGroupedByDate["header"]}</h2>}
                         <ul className="post-list">{postGroupedByDate["posts"].map(post =>
-                          <li key={post["id"].toString()}><Post data={post} all_tags={all_tags} set_tags={set_tags} /></li>
+                          <li key={post["id"].toString()}><Post data={post} /></li>
                         )}</ul>
-                  </>
+                  </div >
                   
                 )}
                 </div>

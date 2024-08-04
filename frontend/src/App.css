@@ -325,10 +325,12 @@ h2 {
   padding: 0;
   list-style: none;
   width: fit-content;
+  max-width: 100%;
 }
 
 ul.post-list li {
   width: fit-content;
+  max-width: 100%;
 }
 
 .post {

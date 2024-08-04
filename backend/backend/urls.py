@@ -17,14 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from posts import views
+from backend.views import serializer
+from backend.views.feed import BookmarksFeed
+
+rss = BookmarksFeed()
 
 router = routers.DefaultRouter()
-router.register(r'posts', views.PostView, 'posts')
-router.register(r'featured_posts', views.FeaturedPostView, 'featured_posts')
-router.register(r'tags', views.TagView, 'tags')
+router.register(r'posts', serializer.PostView, 'posts')
+router.register(r'featured_posts', serializer.FeaturedPostView, 'featured_posts')
+router.register(r'tags', serializer.TagView, 'tags')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('rss/', rss),
 ]
