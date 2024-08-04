@@ -1,5 +1,6 @@
 from django.db import models
 from colorfield.fields import ColorField
+from os import environ
 
 class Tag(models.Model):
     name = models.CharField(max_length=50)
@@ -69,7 +70,10 @@ class Post(models.Model):
         super(Post, self).save(*args, **kwargs)
 
     def get_full_url(self):
-        return "http://example.com/post/" + str(self.id)
+        site = 'http://example.com/'
+        if 'SITE_URL' in environ:
+            site = environ['SITE_URL']
+        return site + 'post/' + str(self.id)
 
     def __str__(self):
         return self.title

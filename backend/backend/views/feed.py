@@ -3,6 +3,7 @@ from django.contrib.syndication.views import Feed
 from django.utils import feedgenerator
 from bs4 import BeautifulSoup
 from typing import Any, Dict
+from os import environ
 
 class RssFeedWithImage(feedgenerator.Rss201rev2Feed):
     content_type = "text/xml"
@@ -39,10 +40,17 @@ class RssFeedWithImage(feedgenerator.Rss201rev2Feed):
             handler.endElement("image")
 
 class BookmarksFeed(Feed):
-    title = "Website's Rss Feed"
+    site_title = "Example Website"
+    if 'SITE_TITLE' in environ:
+        site_title = environ['SITE_TITLE']
+
+    title = site_title + "'s Rss Feed"
     link = 'http://example.com/'
-    description = "Rss Feed of website's bookmarks"
-    feed_url = 'http://example.com/rss'
+    if 'SITE_URL' in environ:
+        link = environ['SITE_URL']
+
+    description = "Rss Feed of " + site_title + "'s bookmarks"
+    feed_url = link + 'rss'
 
     feed_type = RssFeedWithImage
 
